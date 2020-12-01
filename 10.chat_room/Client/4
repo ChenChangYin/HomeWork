@@ -1,0 +1,174 @@
+/*************************************************************************
+	> File Name: user_draw.cpp
+	> Author: ShiSan
+	> Mail: 1303501514qq.com
+	> Created Time: 2020年11月26日 星期四 17时49分45秒
+ ************************************************************************/
+#include "./user_draw.h"
+#include "../Common/head.h"
+#include "./client_class.h"
+
+
+extern WINDOW *Chat_win, *Friend_win, *Write_win, *Message_win;
+extern Cli::Map court;
+extern pthread_mutex_t lock;
+extern Cli::Pack send_pack;
+extern int sockfd;
+int message_num = 1;
+
+
+//创建从startx、starty开始的窗口 heigth行 width列窗口
+WINDOW *create_newwin(int width, int heigth, int startx, int starty) {
+    WINDOW *win;
+    win = newwin(heigth, width, starty, startx);
+    box(win, 0, 0);
+    wrefresh(win);
+    return win;
+}
+
+void destroy_win(WINDOW *win) {
+    wborder(win, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+    wrefresh(win);
+    delwin(win);
+}
+
+void gotoxy(int x, int y) {
+    move(y, x);
+}
+
+void gotoxy_putc(int x, int y, int c) {
+    move(y, x);
+    addch(c);
+    move(LINES - 1, 1);
+    refresh();
+}  
+
+void gotoxy_puts(int x, int y, char* s) {
+    move(y, x);
+    addstr(s);
+    move(LINES - 1, 1);
+    refresh();
+}  
+
+void w_gotoxy_putc(WINDOW *win, int x, int y, char c) {
+    mvwaddch(win, y, x, c);
+    move(LINES - 1, 1);
+    wrefresh(win);
+} 
+
+void w_gotoxy_puts(WINDOW *win, int x, int y, const char *s) {
+    mvwprintw(win, y, x, s);
+    move(LINES - 1, 1);
+    wrefresh(win);
+}
+
+void initfootball() {
+    //对curses函数库初始化
+    initscr();
+    //清空屏幕
+    clear();
+    //检测终端是否支持颜色 之后对curses颜色礼成初始化
+    if (!has_colors() || start_color() == ERR) {
+        endwin();
+        if (start_color() == ERR) {
+            cout << "start_color == ERR !" << endl;
+        }
+        if (!has_colors()) {
+            cout << "!has_colors()" << endl;
+        }
+        fprintf(stderr, "终端不支持颜色！\n");
+        exit(1);
+    }
+    //初始化颜色
+    init_pair(1, COLOR_GREEN, COLOR_BLACK);
+    init_pair(2, COLOR_RED, COLOR_BLACK);
+    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+    init_pair(4, COLOR_YELLOW, COLOR_BLACK);
+    init_pair(5, COLOR_CYAN, COLOR_BLACK);
+    init_pair(6, COLOR_BLUE, COLOR_BLACK);
+    
+    init_pair(7, COLOR_BLACK, COLOR_GREEN);
+    init_pair(8, COLOR_BLACK, COLOR_RED);
+    init_pair(9, COLOR_BLACK, COLOR_BLUE);
+    init_pair(10, COLOR_BLACK, COLOR_YELLOW);
+    init_pair(11, COLOR_BLACK, COLOR_CYAN);
+    //聊天室窗口
+    Message_win = create_newwin(court.width, court.heigth, court.start.x, court.start.y);
+    wattron(Message_win, COLOR_PAIR(5));
+    box(Message_win, 0, 0);
+    wrefresh(Message_win);
+
+    Chat_win = subwin(Message_win, court.heigth - 2, court.width - 2, court.start.y + 1, court.start.x + 1);
+    scrollok(Chat_win, 1);
+
+    //好友列表窗口
+    Friend_win = create_newwin(19, court.heigth, court.start.x + court.width + 1, court.start.y);
+    wattron(Friend_win, COLOR_PAIR(5));
+    box(Friend_win, 0, 0);
+    wrefresh(Friend_win);
+
+    //输入消息的窗口
+    Write_win = create_newwin(court.width + 20, 5, court.start.x, court.start.y + court.heigth + 1);
+    wattron(Write_win, COLOR_PAIR(5));
+    box(Write_win, 0, 0);
+    wrefresh(Write_win);
+}
+
+void show_Chat_win(Cli::Pack pack) {
+    time_t time_now = time(NULL);
+    struct tm *tm = localtime(&time_now);
+    char timestr[20] = {0};
+    char username[80];
+    sprintf(timestr, "%02d:%02d:%02d ", tm->tm_hour, tm->tm_min, tm->tm_sec);
+    if (pack.type == WALL) {
+        wattron(Chat_win, COLOR_PAIR(4));
+        strcpy(username, "Server Info : ");
+    } else {
+        wattron(Chat_win, COLOR_PAIR(6));
+        sprintf(username, "%s : ", pack.name);
+    }
+    if (message_num < 24) {
+        w_gotoxy_puts(Chat_win, 10, message_num, username);
+        wattron(Chat_win, COLOR_PAIR(3));
+        w_gotoxy_puts(Chat_win, 10 + strlen(username), message_num, pack.msg);
+        wattron(Chat_win, COLOR_PAIR(5));
+        w_gotoxy_puts(Chat_win, 1, message_num, timestr);
+        message_num++;
+    } else {
+        message_num = 23;
+        scroll(Chat_win);
+        w_gotoxy_puts(Chat_win, 10, message_num, username);
+        wattron(Chat_win, COLOR_PAIR(3));
+        w_gotoxy_puts(Chat_win, 10 + strlen(username), message_num, pack.msg);
+        wattron(Chat_win, COLOR_PAIR(5));
+        w_gotoxy_puts(Chat_win, 1, message_num, timestr);
+        message_num++;
+        wrefresh(Chat_win);
+    }
+    wrefresh(Chat_win);
+}
+
+
+
+void send_chat() {
+    pthread_mutex_lock(&lock);
+    echo();
+    nocbreak;
+    bzero(send_pack.msg, sizeof(send_pack.msg));
+    w_gotoxy_puts(Write_win, 1, 1, "Input Message : ");
+    mvwscanw(Write_win, 2, 1, "%[^\n]s", send_pack.msg);
+    if (strlen(send_pack.msg))
+        send(sockfd, &send_pack, sizeof(send_pack), 0);
+    wclear(Write_win);
+    box(Write_win, 0, 0);
+    wrefresh(Write_win);
+    noecho();
+    cbreak();
+    pthread_mutex_unlock(&lock);
+}
+
+void *user_draw(void *argc) {
+
+
+
+}

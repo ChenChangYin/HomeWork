@@ -1,0 +1,2 @@
+g++ main.cpp server_class.cpp user_recv.cpp ../Common/thread_pool.cpp -pthread -o server
+./server

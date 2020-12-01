@@ -1,0 +1,2 @@
+g++ main.cpp client_class.cpp user_recv.cpp get_conf_value.cpp user_draw.cpp -pthread -lncursesw -o client
+./client

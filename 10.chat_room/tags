@@ -1,0 +1,194 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+All_user	Client/client_class.h	/^struct All_user{$/;"	s	namespace:Cli
+All_user	Server/server_class.h	/^struct All_user{$/;"	s	namespace:Ser
+Chat_win	Client/main.cpp	/^WINDOW *Friend_win, *Chat_win, *Write_win, *Message_win;$/;"	v
+Cli	Client/client_class.cpp	/^namespace Cli{$/;"	n	file:
+Cli	Client/client_class.h	/^namespace Cli{$/;"	n
+Client	Client/client_class.cpp	/^    Client::Client() {$/;"	f	class:Cli::Client
+Client	Client/client_class.h	/^class Client{$/;"	c	namespace:Cli
+Client_connect	Client/client_class.cpp	/^    void Client::Client_connect() {$/;"	f	class:Cli::Client
+Client_recv	Client/client_class.cpp	/^    void Client::Client_recv() {$/;"	f	class:Cli::Client
+Client_send	Client/client_class.cpp	/^    void Client::Client_send(Pack *pack) {$/;"	f	class:Cli::Client
+Client_socket	Client/client_class.cpp	/^    int Client::Client_socket() {$/;"	f	class:Cli::Client
+FALSE	Server/server_class.h	15;"	d
+Friend_win	Client/main.cpp	/^WINDOW *Friend_win, *Chat_win, *Write_win, *Message_win;$/;"	v
+IP	Client/client_class.h	14;"	d
+MAXBUFF	Client/client_class.h	12;"	d
+MAXBUFF	Server/server_class.h	12;"	d
+MAX_MSG	Common/head.h	48;"	d
+MAX_USER	Client/client_class.h	15;"	d
+MAX_USER	Server/server_class.h	13;"	d
+Map	Client/client_class.h	/^struct Map{$/;"	s	namespace:Cli
+Message_win	Client/main.cpp	/^WINDOW *Friend_win, *Chat_win, *Write_win, *Message_win;$/;"	v
+OFLINE	Common/head.h	55;"	d
+ONLINE	Common/head.h	54;"	d
+PRIVATE_CHAT	Common/head.h	51;"	d
+PUBLIC_CHAT	Common/head.h	50;"	d
+Pack	Client/client_class.h	/^struct Pack {$/;"	s	namespace:Cli
+Pack	Server/server_class.h	/^struct Pack{$/;"	s	namespace:Ser
+Point	Client/client_class.h	/^struct Point{$/;"	s	namespace:Cli
+QUITE	Common/head.h	52;"	d
+SERVERPORT	Client/client_class.h	13;"	d
+SERVER_PORT	Server/server_class.h	11;"	d
+Ser	Server/server_class.cpp	/^namespace Ser{$/;"	n	file:
+Ser	Server/server_class.h	/^namespace Ser{$/;"	n
+Server	Server/server_class.cpp	/^    Server::Server() {$/;"	f	class:Ser::Server
+Server	Server/server_class.h	/^class Server{ $/;"	c	namespace:Ser
+Server_Quit	Client/user_draw.cpp	/^void Server_Quit() {$/;"	f
+Server_accept	Server/server_class.cpp	/^    int Server::Server_accept() {$/;"	f	class:Ser::Server
+Server_recv	Server/server_class.cpp	/^    void Server::Server_recv() {$/;"	f	class:Ser::Server
+Server_send	Server/server_class.cpp	/^    void Server::Server_send(char* send_buff) {$/;"	f	class:Ser::Server
+Server_socket	Server/server_class.cpp	/^    int Server::Server_socket() {$/;"	f	class:Ser::Server
+TRUE	Server/server_class.h	14;"	d
+Task	Common/thread_pool.h	/^struct Task {$/;"	s
+Thread_pool	Common/thread_pool.h	/^struct Thread_pool {$/;"	s
+User	Client/client_class.h	/^struct User{$/;"	s	namespace:Cli
+User	Server/server_class.cpp	/^    User::User(){$/;"	f	class:Ser::User
+User	Server/server_class.h	/^class User{$/;"	c	namespace:Ser
+WALL	Common/head.h	53;"	d
+Write_win	Client/main.cpp	/^WINDOW *Friend_win, *Chat_win, *Write_win, *Message_win;$/;"	v
+_CLIENT_CLASS_H	Client/client_class.h	9;"	d
+_GET_CONF_VALUE_H	Client/get_conf_value.h	9;"	d
+_HEAD_H	Common/head.h	9;"	d
+_SERVER_CLASS_H	Server/server_class.h	9;"	d
+_THREAD_POOL_H	Common/thread_pool.h	10;"	d
+_USER_DRAW_H	Client/user_draw.h	9;"	d
+_USER_RECV_H	Client/user_recv.h	9;"	d
+_USER_RECV_H	Server/user_recv.h	9;"	d
+add_task	Common/thread_pool.cpp	/^int add_task(Thread_pool *pool, void *(*run)(void *args), void *arg) {$/;"	f
+all_user	Server/main.cpp	/^Ser::All_user all_user;$/;"	v
+arg	Common/thread_pool.h	/^    void *arg;$/;"	m	struct:Task
+ban_ctlc	Client/main.cpp	/^void ban_ctlc(int ) {$/;"	f
+ban_ctlc	Server/main.cpp	/^void ban_ctlc(int) {$/;"	f
+chmod_fd	Server/server_class.cpp	/^    void User::chmod_fd(int sockfd) {$/;"	f	class:Ser::User
+chmod_name	Server/server_class.cpp	/^    void User::chmod_name(char *name) {$/;"	f	class:Ser::User
+chmod_online	Server/server_class.cpp	/^    void User::chmod_online(int val) {$/;"	f	class:Ser::User
+clear_recvbuff	Client/client_class.cpp	/^    void Client::clear_recvbuff() {$/;"	f	class:Cli::Client
+clear_recvbuff	Server/server_class.cpp	/^    void Server::clear_recvbuff() {$/;"	f	class:Ser::Server
+clientaddr	Client/client_class.h	/^    struct sockaddr_in clientaddr;$/;"	m	class:Cli::Client	typeref:struct:Cli::Client::sockaddr_in
+clientaddr	Server/server_class.h	/^    struct sockaddr_in clientaddr;$/;"	m	class:Ser::Server	typeref:struct:Ser::Server::sockaddr_in
+cnt	Common/thread_pool.h	/^    int cnt, wait_cnt;$/;"	m	struct:Thread_pool
+conf	Client/main.cpp	/^const char* conf = ".\/client.conf";$/;"	v
+court	Client/main.cpp	/^Cli::Map court; $/;"	v
+create_newwin	Client/user_draw.cpp	/^WINDOW *create_newwin(int width, int heigth, int startx, int starty) {$/;"	f
+destroy_win	Client/user_draw.cpp	/^void destroy_win(WINDOW *win) {$/;"	f
+draw_lock	Client/main.cpp	/^pthread_mutex_t draw_lock;$/;"	v
+draw_t	Client/main.cpp	/^pthread_t draw_t, recv_t;$/;"	v
+epollfd	Server/main.cpp	/^int epollfd, repollfd;$/;"	v
+ev	Server/main.cpp	/^struct epoll_event ev, events[MAX_USER];$/;"	v	typeref:struct:epoll_event
+events	Server/main.cpp	/^struct epoll_event ev, events[MAX_USER];$/;"	v	typeref:struct:
+exit_flag	Common/thread_pool.h	/^    bool exit_flag;$/;"	m	struct:Thread_pool
+fd	Client/client_class.h	/^    int fd;$/;"	m	struct:Cli::User
+fd	Server/server_class.h	/^    int fd;$/;"	m	class:Ser::User
+gate_heigth	Client/client_class.h	/^    int gate_heigth;$/;"	m	struct:Cli::Map
+gate_width	Client/client_class.h	/^    int gate_width;$/;"	m	struct:Cli::Map
+get_conf_value	Client/get_conf_value.cpp	/^char *get_conf_value(const char* path, const char* key) {$/;"	f
+get_fd	Server/server_class.cpp	/^    int User::get_fd() {$/;"	f	class:Ser::User
+get_name	Server/server_class.cpp	/^    char* User::get_name(){$/;"	f	class:Ser::User
+get_newsockfd	Client/client_class.cpp	/^    int Client::get_newsockfd() {$/;"	f	class:Cli::Client
+get_newsockfd	Server/server_class.cpp	/^    int Server::get_newsockfd() {$/;"	f	class:Ser::Server
+get_online	Server/server_class.cpp	/^    int User::get_online(){$/;"	f	class:Ser::User
+get_recvbuff	Client/client_class.cpp	/^    char *Client::get_recvbuff() {$/;"	f	class:Cli::Client
+get_recvbuff	Server/server_class.cpp	/^    char *Server::get_recvbuff() {$/;"	f	class:Ser::Server
+get_recvret	Client/client_class.cpp	/^    int Client::get_recvret() {$/;"	f	class:Cli::Client
+get_recvret	Server/server_class.cpp	/^    int Server::get_recvret() {$/;"	f	class:Ser::Server
+get_ret	Client/client_class.cpp	/^    int Client::get_ret() {$/;"	f	class:Cli::Client
+get_ret	Server/server_class.cpp	/^    int Server::get_ret() {$/;"	f	class:Ser::Server
+get_sendret	Client/client_class.cpp	/^    int Client::get_sendret() {$/;"	f	class:Cli::Client
+get_sendret	Server/server_class.cpp	/^    int Server::get_sendret() {$/;"	f	class:Ser::Server
+get_sockfd	Client/client_class.cpp	/^    int Client::get_sockfd(){$/;"	f	class:Cli::Client
+get_sockfd	Server/server_class.cpp	/^    int Server::get_sockfd() {$/;"	f	class:Ser::Server
+gotoxy	Client/user_draw.cpp	/^void gotoxy(int x, int y) {$/;"	f
+gotoxy_putc	Client/user_draw.cpp	/^void gotoxy_putc(int x, int y, int c) {$/;"	f
+gotoxy_puts	Client/user_draw.cpp	/^void gotoxy_puts(int x, int y, char* s) {$/;"	f
+have_task	Common/thread_pool.h	/^    pthread_cond_t have_task;$/;"	m	struct:Thread_pool
+heigth	Client/client_class.h	/^    int heigth;$/;"	m	struct:Cli::Map
+initfootball	Client/user_draw.cpp	/^void initfootball() {$/;"	f
+line	Client/user_draw.cpp	/^int message_num = 0, line = 0;$/;"	v
+listen_num	Server/server_class.h	/^    int listen_num;$/;"	m	class:Ser::Server
+lock	Client/main.cpp	/^pthread_mutex_t lock;$/;"	v
+main	Client/main.cpp	/^int main(int argc, char* argv[]) {$/;"	f
+main	Server/main.cpp	/^int main(int argc, char *argv[]) {$/;"	f
+max_thread_cnt	Common/thread_pool.h	/^    int max_thread_cnt;$/;"	m	struct:Thread_pool
+message_num	Client/user_draw.cpp	/^int message_num = 0, line = 0;$/;"	v
+msg	Client/client_class.h	/^    char msg[MAX_MSG];$/;"	m	struct:Cli::Pack
+msg	Server/server_class.h	/^    char msg[1024];$/;"	m	struct:Ser::Pack
+mutex	Common/thread_pool.h	/^    pthread_mutex_t mutex;$/;"	m	struct:Thread_pool
+name	Client/client_class.h	/^    char name[30];$/;"	m	struct:Cli::Pack
+name	Client/client_class.h	/^    char name[30];$/;"	m	struct:Cli::User
+name	Server/server_class.h	/^    char name[30];$/;"	m	class:Ser::User
+name	Server/server_class.h	/^    char name[30];$/;"	m	struct:Ser::Pack
+newsockfd	Client/client_class.h	/^    int newsockfd;$/;"	m	class:Cli::Client
+newsockfd	Server/server_class.h	/^    int newsockfd;$/;"	m	class:Ser::Server
+num	Client/client_class.h	/^    int num;$/;"	m	struct:Cli::All_user
+num	Server/server_class.h	/^    int num;$/;"	m	struct:Ser::All_user
+on	Client/client_class.h	/^    int on;$/;"	m	class:Cli::Client
+on	Server/server_class.h	/^    int on;$/;"	m	class:Ser::Server
+online	Client/client_class.h	/^    int online;$/;"	m	struct:Cli::User
+online	Server/server_class.h	/^    int online;$/;"	m	class:Ser::User
+online_pack	Server/main.cpp	/^Ser::Pack online_pack;$/;"	v
+online_user	Client/main.cpp	/^map<string, int> online_user;$/;"	v
+over	Common/thread_pool.h	/^    pthread_cond_t over;$/;"	m	struct:Thread_pool
+recv_buff	Client/client_class.h	/^    char recv_buff[MAXBUFF];$/;"	m	class:Cli::Client
+recv_buff	Server/server_class.h	/^    char recv_buff[MAXBUFF];$/;"	m	class:Ser::Server
+recv_pack	Client/main.cpp	/^Cli::Pack recv_pack;$/;"	v
+recv_ret	Client/client_class.h	/^    int recv_ret;$/;"	m	class:Cli::Client
+recv_ret	Server/server_class.h	/^    int recv_ret;$/;"	m	class:Ser::Server
+recv_run	Server/user_recv.cpp	/^void *recv_run(void *argc) {$/;"	f
+recv_t	Client/main.cpp	/^pthread_t draw_t, recv_t;$/;"	v
+recvret	Client/client_class.h	/^    int recvret;$/;"	m	class:Cli::Client
+repollfd	Server/main.cpp	/^int epollfd, repollfd;$/;"	v
+ret	Client/client_class.h	/^    int ret;$/;"	m	class:Cli::Client
+ret	Server/server_class.h	/^    int ret;$/;"	m	class:Ser::Server
+rev	Server/main.cpp	/^struct epoll_event rev, revents[MAX_USER];$/;"	v	typeref:struct:epoll_event
+revents	Server/main.cpp	/^struct epoll_event rev, revents[MAX_USER];$/;"	v	typeref:struct:
+run	Common/thread_pool.h	/^    void *(*run)(void *arg);$/;"	m	struct:Task
+send_buff	Client/main.cpp	/^char send_buff[100] = {0};$/;"	v
+send_chat	Client/send_pack.cpp	/^void send_chat() {$/;"	f
+send_chat	Client/user_draw.cpp	/^void send_chat() {$/;"	f
+send_pack	Client/main.cpp	/^Cli::Pack send_pack;$/;"	v
+send_ret	Client/client_class.h	/^    int send_ret;$/;"	m	class:Cli::Client
+send_ret	Server/server_class.h	/^    int send_ret;$/;"	m	class:Ser::Server
+sendret	Client/client_class.h	/^    int sendret;$/;"	m	class:Cli::Client
+sendret	Server/server_class.h	/^    int sendret;$/;"	m	class:Ser::Server
+server	Server/main.cpp	/^Ser::Server server;$/;"	v
+serveraddr	Client/client_class.h	/^    struct sockaddr_in serveraddr;$/;"	m	class:Cli::Client	typeref:struct:Cli::Client::sockaddr_in
+serveraddr	Server/server_class.h	/^    struct sockaddr_in serveraddr;$/;"	m	class:Ser::Server	typeref:struct:Ser::Server::sockaddr_in
+serverlen	Client/client_class.h	/^    socklen_t serverlen;$/;"	m	class:Cli::Client
+serverlen	Server/server_class.h	/^    socklen_t serverlen;$/;"	m	class:Ser::Server
+show_Chat_win	Client/user_draw.cpp	/^void show_Chat_win(Cli::Pack pack) {$/;"	f
+sockfd	Client/client_class.h	/^    int sockfd;$/;"	m	class:Cli::Client
+sockfd	Client/main.cpp	/^int sockfd;$/;"	v
+sockfd	Server/server_class.h	/^    int sockfd;$/;"	m	class:Ser::Server
+start	Client/client_class.h	/^    struct Point start;\/\/起始位置$/;"	m	struct:Cli::Map	typeref:struct:Cli::Map::Point
+t_pool	Server/main.cpp	/^struct Thread_pool t_pool;$/;"	v	typeref:struct:Thread_pool
+tasks	Common/thread_pool.h	/^    queue<Task> tasks;$/;"	m	struct:Thread_pool
+thread_is_alive	Common/thread_pool.cpp	/^bool thread_is_alive(pthread_t thread) {$/;"	f
+thread_pool_clear	Common/thread_pool.cpp	/^void thread_pool_clear(Thread_pool *pool) {$/;"	f
+thread_pool_init	Common/thread_pool.cpp	/^void thread_pool_init(Thread_pool *pool) {$/;"	f
+thread_run	Common/thread_pool.cpp	/^void *thread_run(void *arg) {$/;"	f
+threads	Common/thread_pool.h	/^    pthread_t *threads;$/;"	m	struct:Thread_pool
+to_name	Client/client_class.h	/^    char to_name[30];$/;"	m	struct:Cli::Pack
+to_name	Server/server_class.h	/^    char to_name[30];$/;"	m	struct:Ser::Pack
+type	Client/client_class.h	/^    int type;$/;"	m	struct:Cli::Pack
+type	Server/server_class.h	/^    int type;$/;"	m	struct:Ser::Pack
+user	Client/client_class.h	/^    Cli::User user[MAX_USER];$/;"	m	struct:Cli::All_user
+user	Server/main.cpp	/^Ser::User user[MAX_USER];$/;"	v
+user	Server/server_class.h	/^    Ser::User user[MAX_USER];$/;"	m	struct:Ser::All_user
+user_draw	Client/user_draw.cpp	/^void *user_draw(void *argc) {$/;"	f
+user_recv	Client/user_recv.cpp	/^void *user_recv(void *argc) {$/;"	f
+user_recv	Server/user_recv.cpp	/^void *user_recv(void *arg){$/;"	f
+w_gotoxy_putc	Client/user_draw.cpp	/^void w_gotoxy_putc(WINDOW *win, int x, int y, char c) {$/;"	f
+w_gotoxy_puts	Client/user_draw.cpp	/^void w_gotoxy_puts(WINDOW *win, int x, int y, const char *s) {$/;"	f
+wait_cnt	Common/thread_pool.h	/^    int cnt, wait_cnt;$/;"	m	struct:Thread_pool
+width	Client/client_class.h	/^    int width;$/;"	m	struct:Cli::Map
+x	Client/client_class.h	/^    int x;$/;"	m	struct:Cli::Point
+y	Client/client_class.h	/^    int y;$/;"	m	struct:Cli::Point
+~Client	Client/client_class.cpp	/^    Client::~Client() {$/;"	f	class:Cli::Client
+~Server	Server/server_class.cpp	/^    Server::~Server() {$/;"	f	class:Ser::Server
+~User	Server/server_class.cpp	/^    User::~User() {$/;"	f	class:Ser::User
